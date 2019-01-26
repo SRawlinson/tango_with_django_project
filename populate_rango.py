@@ -34,8 +34,12 @@ def populate():
         {"title":"Flask",
         "url":"http://flask.pocoo.org"} ]
     
+
+    # LAUREN! Here is the dictionary, I have no idea if this is formatted correctly cos I haven't really used dictionaries before
+    # but my understanding is that category 'Python' cycles through the python_pages but gives each the same number of views on likes - 
+    # I don't know why we want that. 
     cats = {"Python": {"pages": python_pages, "views": 128, "likes": 64}, 
-            "Django": {"pages": django_pages, "views":64, "likes":32},
+                "Django": {"pages": django_pages, "views":64, "likes":32},
             "Other Frameworks": {"pages": other_pages, "views":32, "likes":16} }
 
     #The code below goes through the cats dictionary, then adds each category,
@@ -47,11 +51,14 @@ def populate():
 
 #22/01 - can't compile due to below arg: missing 2 required positional arguments
 # 'views' and 'likes'. Can't work out where 'cat' is initialised or 
-#the syntax for iterating over a dict with the comma? No idea really. 
+#the syntax for iterating over a dict with the comma? No idea really. Maybe cos of the nested loop? 
+
     for cat, cat_data in cats.items():
-        c = add_cat(cat)
+        c = add_cat(cat, cat_data["views"], cat_data["likes"])
         for p in cat_data["pages"]:
             add_page(c, p["title"], p["url"])
+
+
     
     #Print out the categories we have added.
     for c in Category.objects.all():
@@ -64,7 +71,7 @@ def add_page(cat, title, url, views=0):
     p.views=views
     p.save()
     return p
-
+#Updating this to take more inputs than the name has caused all the trouble! 
 def add_cat(name, views, likes):
     c = Category.objects.get_or_create(name=name)[0]
     c.save()
