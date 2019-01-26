@@ -35,9 +35,7 @@ def populate():
         "url":"http://flask.pocoo.org"} ]
     
 
-    # LAUREN! Here is the dictionary, I have no idea if this is formatted correctly cos I haven't really used dictionaries before
-    # but my understanding is that category 'Python' cycles through the python_pages but gives each the same number of views on likes - 
-    # I don't know why we want that. 
+   
     cats = {"Python": {"pages": python_pages, "views": 128, "likes": 64}, 
                 "Django": {"pages": django_pages, "views":64, "likes":32},
             "Other Frameworks": {"pages": other_pages, "views":32, "likes":16} }
@@ -49,9 +47,6 @@ def populate():
     # for more information about how to iterate over a dictionary porperly
 
 
-#22/01 - can't compile due to below arg: missing 2 required positional arguments
-# 'views' and 'likes'. Can't work out where 'cat' is initialised or 
-#the syntax for iterating over a dict with the comma? No idea really. Maybe cos of the nested loop? 
 
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
