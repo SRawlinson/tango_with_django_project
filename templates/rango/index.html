@@ -9,10 +9,13 @@
 
     <body>
         <h1>Rango says...</h1>
-        <div>hey there partner! </div>
+        <div>hey there partner! 
+            
+        </div>
 
         <div>
         {% if categories %}
+        <strong>Most Liked Categories:</strong>
         <ul>
             {% for category in categories %}
                 <li>
@@ -22,6 +25,21 @@
         </ul>
         {% else %}
             <strong>There are no categories present. </strong>
+        {% endif %}
+        </div>
+
+        <div>
+        {% if pages %}
+        <strong>Most viewed pages:</strong>
+        <ul>
+            {% for page in pages %}
+                <li>
+                {{ page.title}}
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <strong>There are no pages present. </strong>
         {% endif %}
         </div>
 
