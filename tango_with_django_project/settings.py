@@ -33,6 +33,9 @@ SECRET_KEY = 'u&wpx#xgovgz_%_t)$9lzgb^al@$9y61hra^=9f)190_*ong6l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Adding in the LOGIN variable to redirect users needing to login - chap 9 page 130
+LOGIN_URL = '/rango/login/'
+
 ALLOWED_HOSTS = []
 
 

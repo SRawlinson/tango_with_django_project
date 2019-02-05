@@ -25,10 +25,17 @@
         <hr />
         <div>
             <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'restricted' %}">Restricted</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{%url 'add_category' %}">Add New Category</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><A href="{% url 'index' %}">Index</A></li>
-                <li><a href="{% url 'register' %}">Sign Up</a></li>
+
             </ul>
         </div>
 
